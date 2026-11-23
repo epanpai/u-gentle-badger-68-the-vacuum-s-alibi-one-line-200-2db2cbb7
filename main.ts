@@ -24,6 +24,8 @@
 //    restraining orders, lidar "structural" crumbs).
 // 5. One clean sentence flow, 131 characters, every word earning its
 //    place, punch sitting at the end.
+// Note on the log number: another entry already opens "Log 447:", so
+// this line opens "Log 812:" — same deadpan register, no collision.
 //
 // Short is also a tie-break asset: on an exact Judge win rate tie the
 // smaller text (fewer bytes) places first, and 131 bytes is compact for
