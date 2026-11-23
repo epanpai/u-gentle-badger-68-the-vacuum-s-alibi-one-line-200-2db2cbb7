@@ -73,4 +73,40 @@ of dust; (5) one clean sentence flow, 131 chars, punch at the end.
   2026-11-24T00:30:00.666Z (07:30 WIB).
 
 ## 5. Check / submit
-- (pending — see below)
+- Bundle v1: ~/workspace/makefun/submit/u-gentle-badger-68-vacuum-transcripts-v1.tar.gz
+  (705,335 bytes, sha256
+  69064472b094fb1d6ebccbbcf408cfb1b74f5743508ec42b1ca95382cdc200b1),
+  18 sessions, run record: scheduled prompt, system prompt uploaded,
+  instruction files collected (1), MCP none, agent facts declared
+  (harness muse, model muse-spark-1.3, provider meta, effort default).
+- Check v1 on commit b90e79c: 13 pass / 1 fail / 5 skip / 5 at
+  submission. ONLY thinking_priced still fails (0 usage rows).
+  Everything else passes; thinking_revised PASS (main.ts final
+  content from 2 messages), thinking_in_window PASS (all timestamps
+  21:50:02Z–receipt), thinking_reproduces 63.3% PASS,
+  transcripts_run_record PASS.
+- thinking_priced NOT fixable from this subagent session: the CLI's
+  own fix text says a subagent's usage rows are written only once its
+  run completes, and the top-level agent must run the SELECT + re-bundle
+  + submit. This is the known token-radar/roast/ronigrv/ooo sequencing
+  pattern, not a build failure.
+- Quota re-verified before handoff: can_submit yes (day cap 5,
+  taken 0). Blind round slot open until 2026-11-24T00:30:00.666Z
+  (07:30 WIB).
+- HANDOFF to parent: after this run completes, SELECT usage rows for
+  agent_ids 8fb7da15-fd0b-476e-98cf-e022e761d923 (parent) and
+  2ec6abda-c5fa-4555-a079-a219b38346fd (this builder), re-bundle as v2
+  with --muse-usage <file> (same flags as v1: --prompt-file
+  ~/workspace/makefun/submit/u-gentle-badger-68-vacuum-prompt.txt
+  --prompt-origin scheduled --prompt-via "cron makefun-bounty-screening
+  every 5 min" --mcp none --harness muse --harness-version unrecorded
+  --model muse-spark-1.3 --provider meta --effort default), re-check,
+  then submit the final commit below with
+  --keypair ~/workspace/makefun/makefun-keypair.json. Receipt to
+  ~/workspace/makefun/submit/receipt-<submission-id>.json (mode 600).
+- Final commit (after BUILD_LOG update): see git log; submit THAT
+  commit's sha (checked v2 by parent after re-bundle).
+- NOTE: unlike the two sibling gentle-badger builds (make-the-judge-
+  smile blocked 04:55 WIB, pickup-lines blocked 05:08 WIB), this build
+  was NOT blocked at any git/kit step — git init, commit, push, gh
+  repo create/edit, bundle and check all ran normally.
